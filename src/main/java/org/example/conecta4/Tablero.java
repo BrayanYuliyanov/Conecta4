@@ -66,7 +66,10 @@ public class Tablero {
         for (int i = FILAS - 1; i >= 0; i--) {
             for (int j = 0; j < COLUMNAS; j++) {
                 char valor = matriz[i][j];
-                if (valor != VACIO || hayCuatroEnRaya(valor, i, j)) {
+                if (valor == VACIO) {
+                    continue;
+                }
+                if (hayCuatroEnRaya(valor, i, j)) {
                     return valor;
                 }
             }

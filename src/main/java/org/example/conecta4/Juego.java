@@ -21,9 +21,14 @@ public class Juego {
             System.out.print("Indica la columna: ");
             int columna = Integer.parseInt(teclado.nextLine());
             char valorTurno = String.valueOf(turno).charAt(0);
-            tablero.meterFicha(columna, valorTurno);
+            boolean b = tablero.meterFicha(columna, valorTurno);
 
-            tablero.avanzarTurno();
+            if (b) {
+                turno++;
+                if (turno > JUGADORES) {
+                    turno = 1;
+                }
+            }
 
             ganador = tablero.getGanador();
         }
